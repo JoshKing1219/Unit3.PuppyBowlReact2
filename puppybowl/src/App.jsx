@@ -1,16 +1,25 @@
-import './App.css'
-import AllPlayers from './components/AllPlayers'
+import { Routes, Route, Link } from "react-router-dom";
+import AllPlayers from "./components/AllPlayers";
+import NewPlayerForm from "./components/NewPlayerForm";
+import SinglePlayer from "./components/SinglePlayer";
 
 function App() {
-
   return (
-    <div id='home-page'>
-      <h1 id='title'>Welcome to the Puppy Bowl!</h1>
-      <p className='descrip'>All of our players are shown below!</p>
-      <p className='descrip'>You may also submit your own pet for the Bowl in the New Player tab!</p>
-      <AllPlayers/>
+    <div id="home-page">
+      <div id="navbar">
+        <Link to="/">Home</Link>
+        <Link to="/new-player-form">New Player Submission</Link>
+        <Link to="/single-player">Single Player</Link>
+      </div>
+      <div id="main-section">
+        <Routes>
+          <Route path="/" element={<AllPlayers/>}/>
+          <Route path="/new-player-form" element={<NewPlayerForm />} />
+          <Route path="/single-player" element={<SinglePlayer />} />
+        </Routes>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

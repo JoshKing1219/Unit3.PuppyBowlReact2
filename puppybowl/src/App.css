@@ -5,7 +5,12 @@ body {
   background-attachment: fixed; /* The background image will not scroll with the page. */
   background-size: cover; /* The background image will cover the entire area of the element. */
 }
-
+#navbar {
+  padding: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: cadetblue;
+}
 /* Styling for the introduction text of the application. */
 .intro {
   text-align: center; /* The text is centered. */
@@ -17,7 +22,7 @@ body {
   padding-left: 100px; /* The padding to the left of the text. */
 }
 /* Styling for the container that holds the player cards. */
-.players {
+.all-players {
   display: flex; /* The player cards are displayed using flexbox. */
   flex-wrap: wrap; /* The player cards will wrap onto the next line if there is not enough space. */
   justify-content: center; /* The player cards are centered on the line. */
@@ -25,8 +30,8 @@ body {
 
 /* Styling for individual player cards. */
 .player-card {
-  width: 360px; /* The width of the card. */
-  height: 380px; /* The height of the card. */
+  width: 25vw; /* The width of the card. */
+  height: 40vh; /* The height of the card. */
   margin: 10px; /* The margin around the card. */
   background-color: indianred; /* The background color of the card. */
   border: 3px dashed black; /* The border around the card. */
@@ -55,8 +60,8 @@ body {
 
 /* Styling for the player's image. */
 .player-image {
-  width: 250px; /* The width of the image. */
-  height: 250px; /* The height of the image. */
+  width: 20vw; /* The width of the image. */
+  height: 20vh; /* The height of the image. */
   object-fit: contain;/* The image will cover the entire area of its container without distorting its aspect ratio. */
   display: grid;/* The image is displayed using CSS Grid. */
   margin-left: 12px;/* The margin to the left of the image. */
@@ -72,6 +77,15 @@ body {
   text-align: center; /* The details text is centered. */
 }
 
+.see-details{
+  width: 10vw;
+  height: 3vh;
+  border: 2px solid black;
+  border-radius: 45%;
+  background-color: darkgoldenrod;
+  box-shadow: 3px 3px black;
+}
+
 /*Styling for the page title*/
 #title{
   text-align: center; /*Centers the text in the middle of the page*/
@@ -80,9 +94,21 @@ body {
 }
 
 /*Styling for the page description*/
-#descrip{
+.descrip{
   text-align: center; /*Centers the text in the middle of the page*/
   font-size: 1.5rem; /*Size of the title's description*/
   font-weight: 600; /*Weight of the description's text*/
   color: darkorchid; /*Color of the description's text*/
+}
+
+#error-message{
+  color: darkorchid;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.single-player{
+  display: flex;
+  justify-content: center;
 }

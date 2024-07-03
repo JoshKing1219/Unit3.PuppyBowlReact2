@@ -10,8 +10,23 @@ export const puppyBowlApi = createApi({
     endpoints: (builder) => ({
         getPlayers: builder.query({
             query: () => "/players",
+
+            providesTags: ["players"],
+        }),
+        getPlayer: builder.query({
+            query: () => `/players/${id}`,
+
+            providesTags: ["player"],
+        }),
+        addPlayer: builder.mutation({
+            query: (body) => ({
+                url: "/players",
+                method: "POST",
+                body,
+            }),
+            invalidatesTags: ["players", "player"],
         }),
     }),
 });
 
-export const {useGetPlayersQuery} = puppyBowlApi
+export const {useGetPlayersQuery, useGetPlayerQuery, useAddPlayerMutation} = puppyBowlApi
