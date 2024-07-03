@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { useGetPlayersQuery, useGetPlayerQuery } from "../API/puppyBowlApi";
+import { useGetPlayersQuery} from "../API/puppyBowlApi";
 import "../App.css";
 
 const AllPlayers = () => {
@@ -38,7 +38,7 @@ const AllPlayers = () => {
                 <p>ID: {player.id}</p>
                 <p>Breed: {player.breed}</p>
                 <p>Status: {player.status}</p>
-                <button onClick={() => navigate("/single-player")} className="see-details">See Details</button>
+                <button onClick={() => navigate("/single-player/:id")} className="see-details">See Details</button>
               </div>
 
               <div className="player-image-container">

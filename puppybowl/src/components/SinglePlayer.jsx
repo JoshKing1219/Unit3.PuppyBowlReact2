@@ -22,7 +22,7 @@ export default function SinglePlayer() {
       <div className="single-player">
         {isLoading && <p>{message}</p>}
         {error && <p id="error-message">{message}</p>}
-        {data?.data?.players &&
+        {data?.data?.player &&
           data.data.player.map((player) => (
             <div key={player.id} className="player-card">
               <div className="player-details">

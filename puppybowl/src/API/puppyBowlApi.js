@@ -4,19 +4,19 @@ export const puppyBowlApi = createApi({
     reducerPath: "puppyBowlApi",
 
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://fsa-puppy-bowl.herokuapp.com/api/2403-FTB-ET-WEB-PT",
+        baseUrl: "https://fsa-puppy-bowl.herokuapp.com/api/2403-FTB-ET-WEB-PT/players",
     }),
 
     endpoints: (builder) => ({
         getPlayers: builder.query({
-            query: () => "/players",
+            query: () => "/",
 
             providesTags: ["players"],
         }),
         getPlayer: builder.query({
-            query: () => `/players/${id}`,
+            query: (id) => `/${id}`,
 
-            providesTags: ["player"],
+            providesTags: ["players"],
         }),
         addPlayer: builder.mutation({
             query: (body) => ({
@@ -24,7 +24,7 @@ export const puppyBowlApi = createApi({
                 method: "POST",
                 body,
             }),
-            invalidatesTags: ["players", "player"],
+            invalidatesTags: ["players"],
         }),
     }),
 });

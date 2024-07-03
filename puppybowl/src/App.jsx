@@ -9,13 +9,12 @@ function App() {
       <div id="navbar">
         <Link to="/">Home</Link>
         <Link to="/new-player-form">New Player Submission</Link>
-        <Link to="/single-player">Single Player</Link>
       </div>
       <div id="main-section">
         <Routes>
           <Route path="/" element={<AllPlayers/>}/>
           <Route path="/new-player-form" element={<NewPlayerForm />} />
-          <Route path="/single-player" element={<SinglePlayer />} />
+          <Route path="/single-player/:id" element={<SinglePlayer />} />
         </Routes>
       </div>
     </div>

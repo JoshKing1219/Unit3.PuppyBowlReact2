@@ -1,7 +1,7 @@
 import { useAddPlayerMutation } from "../API/puppyBowlApi";
 import { useState } from "react";
 import "../App.css";
-import SinglePlayer from "./SinglePlayer";
+//import SinglePlayer from "./SinglePlayer";
 
 export default function NewPlayerForm() {
   const [name, setName] = useState("");
@@ -9,7 +9,7 @@ export default function NewPlayerForm() {
   const [status, setStatus] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  const [addPlayer] = useAddPlayerMutation;
+  const [addPlayer] = useAddPlayerMutation();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -54,10 +54,10 @@ export default function NewPlayerForm() {
               onChange={(event) => setImageUrl(event.target.value)}
             />
           </label>
+          <button>Submit</button>
         </form>
       </div>
-      <div id="single-player-container">
-        <SinglePlayer/>
+      <div className="single-player">
       </div>
     </div>
   );
