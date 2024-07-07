@@ -1,6 +1,7 @@
 import { useAddPlayerMutation } from "../API/puppyBowlApi";
 import { useState } from "react";
 import "../App.css";
+import { useNavigate } from "react-router";
 //import SinglePlayer from "./SinglePlayer";
 
 export default function NewPlayerForm() {
@@ -10,23 +11,27 @@ export default function NewPlayerForm() {
   const [imageUrl, setImageUrl] = useState("");
 
   const [addPlayer] = useAddPlayerMutation();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const response = await addPlayer({name, breed, status, imageUrl})
 
-    try {
-      addPlayer({ name, breed, status, imageUrl });
-    } catch (error) {
-      console.log(error);
-    }
+    setName("")
+    setBreed("")
+    setStatus("bench")
+    setImageUrl("")
+    
+
+    navigate(`/single-player/${response.data.data.newPlayer.id}`)
   };
 
   return (
-    <div id="main-section">
+    <section id="form-main-section">
       <h2 id="title">Submit a new player!</h2>
       <div id="form-container">
         <form onSubmit={handleSubmit} id="new-player-form">
-          <label>
+          <label id="name">
             Name:
             <input
               value={name}
@@ -42,10 +47,10 @@ export default function NewPlayerForm() {
           </label>
           <label>
             Status:
-            <input
-              value={status}
-              onChange={(event) => setStatus(event.target.value)}
-            />
+            <select value={status} onChange={(event) => setStatus(event.target.value)}>
+              <option value="bench" className="option">Bench</option>
+              <option value="field" className="option">Field</option>
+            </select>
           </label>
           <label>
             Image URL:
@@ -54,11 +59,11 @@ export default function NewPlayerForm() {
               onChange={(event) => setImageUrl(event.target.value)}
             />
           </label>
-          <button>Submit</button>
+          <button id="submit">Submit</button>
         </form>
       </div>
       <div className="single-player">
       </div>
-    </div>
+    </section>
   );
 }

@@ -20,13 +20,19 @@ export const puppyBowlApi = createApi({
         }),
         addPlayer: builder.mutation({
             query: (body) => ({
-                url: "/players",
+                url: "/",
                 method: "POST",
                 body,
             }),
             invalidatesTags: ["players"],
         }),
+        deletePlayer: builder.mutation({
+            query: (id) => ({
+                url: `/${id}`,
+                method: "DELETE",
+            }),
+        }),
     }),
 });
 
-export const {useGetPlayersQuery, useGetPlayerQuery, useAddPlayerMutation} = puppyBowlApi
+export const {useGetPlayersQuery, useGetPlayerQuery, useAddPlayerMutation, useDeletePlayerMutation} = puppyBowlApi

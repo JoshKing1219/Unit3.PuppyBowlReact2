@@ -5,12 +5,14 @@ body {
   background-attachment: fixed; /* The background image will not scroll with the page. */
   background-size: cover; /* The background image will cover the entire area of the element. */
 }
+
 #navbar {
   padding: 2em;
   display: flex;
   justify-content: space-evenly;
   background-color: cadetblue;
 }
+
 /* Styling for the introduction text of the application. */
 .intro {
   text-align: center; /* The text is centered. */
@@ -21,6 +23,7 @@ body {
   padding-right: 100px; /* The padding to the right of the text. */
   padding-left: 100px; /* The padding to the left of the text. */
 }
+
 /* Styling for the container that holds the player cards. */
 .all-players {
   display: flex; /* The player cards are displayed using flexbox. */
@@ -31,7 +34,7 @@ body {
 /* Styling for individual player cards. */
 .player-card {
   width: 25vw; /* The width of the card. */
-  height: 40vh; /* The height of the card. */
+  height: 45vh; /* The height of the card. */
   margin: 10px; /* The margin around the card. */
   background-color: indianred; /* The background color of the card. */
   border: 3px dashed black; /* The border around the card. */
@@ -77,13 +80,32 @@ body {
   text-align: center; /* The details text is centered. */
 }
 
-.see-details{
-  width: 10vw;
+#delete{
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 8vw;
   height: 3vh;
+  font-size: 0.8rem;
+  text-align: center;
+  border: 3px solid red;
+  background-color: darkred;
+  color: azure;
+  box-shadow: 3px 3px 30px red;
+}
+
+.see-details{
+  overflow: hidden;
+  width: 11vw;
+  height: 4vh;
   border: 2px solid black;
   border-radius: 45%;
   background-color: darkgoldenrod;
   box-shadow: 3px 3px black;
+  font-size: 0.9rem;
 }
 
 /*Styling for the page title*/
@@ -111,4 +133,63 @@ body {
 .single-player{
   display: flex;
   justify-content: center;
+}
+
+form{
+  display: grid;
+  align-items: baseline;
+  justify-content: center;
+  justify-items: start;
+  margin: auto;
+  width: 25vw;
+  border: 5px solid black;
+  border-radius: 15%;
+  background-color: cyan;
+}
+
+label{
+  padding: 5px;
+  font-size: 1.25rem;
+}
+
+input{
+  border: 2px solid black;
+}
+
+.option{
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#name{
+  margin-top: 10px;
+}
+
+label, input{
+  width: 15vw;
+}
+
+label, select{
+  color: darkorchid;
+  font-weight: 700;
+  
+}
+
+#submit{
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 3px solid black;
+  background-color: darkgoldenrod;
+  box-shadow: 3px 3px black;
+  width: 15vw;
+  height: 3vh;
+  font-size: 1rem;
+}
+
+#home-main-section{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50vw;
 }

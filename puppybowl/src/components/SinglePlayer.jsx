@@ -1,9 +1,13 @@
+import { useNavigate, useParams } from "react-router";
 import { useGetPlayerQuery } from "../API/puppyBowlApi";
 import "../App.css";
 
 export default function SinglePlayer() {
+  const navigate = useNavigate();
 
-  const { data = {}, error, isLoading } = useGetPlayerQuery();
+  const { id } = useParams();
+
+  const { data = {}, error, isLoading } = useGetPlayerQuery(id);
 
   let message;
 
@@ -13,34 +17,37 @@ export default function SinglePlayer() {
 
   if (error) {
     message =
-      "Please select a puppy from the Home Page using the See Details button.";
+      "The puppy is loose! ";
   }
 
+  console.log(data)
+
   return (
-    <div id="main-section">
+    <section id="player-main-section">
       <h2 id="title">Your Chosen Player!</h2>
       <div className="single-player">
         {isLoading && <p>{message}</p>}
         {error && <p id="error-message">{message}</p>}
         {data?.data?.player &&
-          data.data.player.map((player) => (
-            <div key={player.id} className="player-card">
+            <div key={data.data.player.id} className="player-card">
               <div className="player-details">
-                <h2>Name: {player.name}</h2>
-                <p>ID: {player.id}</p>
-                <p>Breed: {player.breed}</p>
-                <p>Status: {player.status}</p>
+                <h2>Name: {data.data.player.name}</h2>
+                <p>ID: {data.data.player.id}</p>
+                <p>Breed: {data.data.player.breed}</p>
+                <p>Status: {data.data.player.status}</p>
+                <button onClick={() => navigate("/all-players")} className="see-details">
+                  Return
+                </button>
               </div>
               <div className="player-image-container">
                 <img
                   className="player-image"
-                  src={player.imageUrl}
-                  alt={player.name}
+                  src={data.data.player.imageUrl}
+                  alt={data.data.player.name}
                 />
               </div>
-            </div>
-          ))}
+            </div>}
       </div>
-    </div>
+    </section>
   );
 }
